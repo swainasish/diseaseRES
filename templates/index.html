@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Disease resistant prediction from AA using deep learning {% endblock %}</h1>
+
+
+    
+
+    <form method="POST">
+         <!-- Dropdown menu -->
+         
+        
+        <div class="form-group">
+            <label for="user_input">Input Data (Aminoacid Sequence):</label>
+            <textarea class="form-control" name="user_input" id="user_input" rows="6" placeholder="MDSRFGLRFSSDDMVGSGCNSLFRPNLASSMLILVGFLCSGEQRSGSSLSLGERLCAVFFPFVAIAEAVFFALTDCLADICPGSDDSESRRCAAGASSSAAKKDRSYRHHHHHYRPFLRRSGWESLDIRQLAHLADESRCFSVNEVEALFELYKKLSCSIIDD"></textarea>
+        </div>
+
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    {% if seq_info %}
+    <div style="border: 1px solid #ccc; padding: 15px; margin-top: 20px; border-radius: 5px; background-color: #f9f9f9; word-wrap: break-word; overflow-wrap: break-word; overflow: auto;">
+        <h3>Sequence Information:</h3>
+        <p style="white-space: pre-wrap; margin: 0;">{{ seq_info }}</p>
+    </div>
+    {% endif %}
+    
+    {% if n_var %}
+    <h3 class="mt-5">Output: {{n_var}}</h3>
+
+    {% endif %}
+
+    {% if df %}
+    <h4 class="mt-5">Cell type specificity of variants</h4>
+    <div>
+        {{ df|safe }}
+    </div>
+    {% endif %}
+
+    {% if err %}
+    <h2 class="mt-5">Input is not valid</h2>
+
+    {% endif %}
+
+{% endblock %}
+
+
+

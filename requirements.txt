@@ -1,0 +1,4 @@
+flask==2.0.1
+numpy
+pickle
+rpy2==3.5.17
